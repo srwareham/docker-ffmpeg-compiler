@@ -6,9 +6,15 @@ If you want to cut right to the chase and install ffmpeg, ffprobe, and ffplay al
 
 .. code-block:: bash
 
-    $ bash -c "$(wget https://raw.githubusercontent.com/srwareham/docker-ffmpeg-compiler/master/install_ffmpeg.sh -O -)"
+    bash -c "$(wget https://raw.githubusercontent.com/srwareham/docker-ffmpeg-compiler/master/install.sh -O -)"
+    
+or
 
-What the above performs:
+.. code-block:: bash
+
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/srwareham/docker-ffmpeg-compiler/master/install.sh)"
+
+The above downloads and executes a script that:
 
 #. Downloads a Dockerfile 
 #. Build a Docker image which itself compiles all codecs, and ffmpeg (warning, this takes awhile)
@@ -44,6 +50,7 @@ Dependencies
 ============
 
 - Docker: `installation instructions <https://docs.docker.com/engine/installation/>`_
+- The install script assumes you have set up docker to be run with `non-root access <https://docs.docker.com/engine/installation/linux/ubuntulinux/#create-a-docker-group>`_. If you would rather not configure this, simply download the install.sh script and execute it as root
 
 Why Use Docker Ffmpeg Compiler?
 ===============================
@@ -65,6 +72,9 @@ Main Benefits
 #. **Significant size savings:** The above files used to compile ffmpeg end up requiring ~1.2 GB. Using Docker Ffmpeg Compiler allows you to restore this space quickly and easily
 #. **Portablity:** You can run this code on any linux distribution with docker and it will work. If for some reason the static binary does not work on your system, you can always fire up another docker container to hold the binary and use it to do any encoding
 
+Notes
+=====
+The libopus-dev version that comes with ubuntu 16.04 seems to be incompatible with this script, as such the ubuntu version is pinned to 14.04. I may look into this further if needed.
 
 Contributing
 ============
