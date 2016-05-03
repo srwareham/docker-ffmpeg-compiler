@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:14.04
 
 # Container for compiling ffmpeg and copying ffmpeg, ffprobe, and ffserver to the host operating system.
 # If the host OS is not linux, another container could instead use the binary.
