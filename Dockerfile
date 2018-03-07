@@ -23,7 +23,7 @@ RUN apt-get update \
 ; tar xzvf yasm-1.3.0.tar.gz \
 ; cd yasm-1.3.0 \
 ; ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin" \
-; make \
+; make -j$(cat /proc/cpuinfo | grep processor | wc -l) \
 ; make install \
  make distclean \
 ; apt-get -y --force-yes install libx264-dev \
@@ -32,7 +32,7 @@ RUN apt-get update \
 ; hg clone https://bitbucket.org/multicoreware/x265 \
 ; cd ~/ffmpeg_sources/x265/build/linux \
 ; PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DENABLE_SHARED:bool=off ../../source \
-; make \
+; make -j$(cat /proc/cpuinfo | grep processor | wc -l) \
 ; make install \
 ; make distclean \
 ; cd ~/ffmpeg_sources \
@@ -41,7 +41,7 @@ RUN apt-get update \
 ; cd mstorsjo-fdk-aac* \
 ; autoreconf -fiv \
 ; ./configure --prefix="$HOME/ffmpeg_build" --disable-shared \
-; make \
+; make -j$(cat /proc/cpuinfo | grep processor | wc -l) \
 ; make install \
 ; make distclean \
 ; install libmp3lame \
@@ -52,7 +52,7 @@ RUN apt-get update \
 ; tar xjvf libvpx-1.4.0.tar.bz2 \
 ; cd libvpx-1.4.0 \
 ; PATH="$HOME/bin:$PATH" ./configure --prefix="$HOME/ffmpeg_build" --disable-examples --disable-unit-tests \
-; PATH="$HOME/bin:$PATH" make \
+; PATH="$HOME/bin:$PATH" make -j$(cat /proc/cpuinfo | grep processor | wc -l) \
 ; make install \
 ; make clean
 
@@ -81,7 +81,7 @@ RUN cd ~/ffmpeg_sources \
   --enable-libx264 \
   --enable-libx265 \
   --enable-nonfree \
-; PATH="$HOME/bin:$PATH" make \
+; PATH="$HOME/bin:$PATH" make -j$(cat /proc/cpuinfo | grep processor | wc -l) \
 ; make install \
 ; make distclean \
 ; hash -r
