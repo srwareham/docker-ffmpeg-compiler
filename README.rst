@@ -50,7 +50,7 @@ Dependencies
 ============
 
 - Docker: `installation instructions <https://docs.docker.com/engine/installation/>`_
-- The install script assumes you have set up docker to be run with `non-root access <https://docs.docker.com/engine/installation/linux/ubuntulinux/#create-a-docker-group>`_. If you would rather not configure this, simply download the install.sh script and execute it as root (you'll then need to manually chown the binaries to that of your user account)
+- The install script assumes you have set up docker to be run with `non-root access <https://docs.docker.com/install/linux/linux-postinstall/>`_. If you would rather not configure this, simply download the install.sh script and execute it as root (you'll then need to manually chown the binaries to that of your user account)
 
 Why Use Docker Ffmpeg Compiler?
 ===============================
