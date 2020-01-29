@@ -72,9 +72,6 @@ Main Benefits
 #. **Significant size savings:** The above files used to compile ffmpeg end up requiring ~1.2 GB. Using Docker Ffmpeg Compiler allows you to restore this space quickly and easily
 #. **Portablity:** You can run this code on any linux distribution with docker and it will work. If for some reason the static binary does not work on your system, you can always fire up another docker container to hold the binary and use it to do any encoding
 
-Notes
-=====
-The libopus-dev version that comes with ubuntu 16.04 seems to be incompatible with this script, as such the ubuntu version is pinned to 14.04. I may look into this further if needed.
 
 Contributing
 ============
