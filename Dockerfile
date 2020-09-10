@@ -14,7 +14,7 @@ MAINTAINER srwareham
 # Get the dependencies
 RUN set -x \
 && apt-get update \
-&& apt-get -y install wget curl autoconf automake build-essential libass-dev libfreetype6-dev \
+&& apt-get -y install wget git curl autoconf automake build-essential libass-dev libfreetype6-dev \
   libsdl1.2-dev libtheora-dev libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev \
   libxcb-xfixes0-dev pkg-config texinfo zlib1g-dev \
 && mkdir ~/ffmpeg_sources \
@@ -34,7 +34,7 @@ RUN set -x \
 RUN set -x \
 && cd ~/ffmpeg_sources \
 && hg --version \
-&& hg clone https://bitbucket.org/multicoreware/x265 \
+&& git clone https://github.com/videolan/x265.git \
 && cd ~/ffmpeg_sources/x265/build/linux \
 && PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DENABLE_SHARED:bool=off ../../source \
 && make -j$(cat /proc/cpuinfo | grep processor | wc -l) \
