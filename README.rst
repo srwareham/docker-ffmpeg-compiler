@@ -1,7 +1,7 @@
-Docker Ffmpeg Compiler 
+Docker ffmpeg Compiler 
 ======================
 
-Docker Ffmpeg Compiler is a zero-set-up solution to install a fully featured ffmpeg binary on your linux system.
+Docker ffmpeg Compiler is a zero-set-up solution to install a fully featured ffmpeg binary on your linux system.
 If you want to cut right to the chase and install ffmpeg and ffprobe, all at once, simply:
 
 .. code-block:: bash
@@ -17,10 +17,10 @@ or
 The above downloads and executes a script that:
 
 #. Downloads a Dockerfile 
-#. Build a Docker image, which itself compiles all codecs and ffmpeg (warning, this takes awhile)
-#. Copies static binaries for ffmpeg and ffprobe to the current working directory (with the uid / gid of the calling user)
+#. Build a Docker image, which itself compiles all codecs and ffmpeg (warning, this takes a while)
+#. Copies static binaries for ffmpeg and ffprobe to a subfolder in the current working directory (with the uid / gid of the calling user)
 #. Deletes the ~1.2GB Docker image used to compile
-#. Leaves behind only the two static binaries mentioned above (each ~22MB)
+#. Leaves behind only the two static binaries mentioned above (each ~32MB)
 
 Codecs and Features
 ===================
@@ -52,15 +52,15 @@ Dependencies
 - Docker: `installation instructions <https://docs.docker.com/engine/installation/>`_
 - The install script assumes you have set up docker to be run with `non-root access <https://docs.docker.com/install/linux/linux-postinstall/>`_. If you would rather not configure this, simply download the install.sh script and execute it as root (you'll then need to manually chown the binaries to that of your user account)
 
-Why Use Docker Ffmpeg Compiler?
+Why Use Docker ffmpeg Compiler?
 ===============================
 
-Ffmpeg and many of its constituent components use the GPL license. With only these features enabled, ffmpeg can be distributed in binary form.
+ffmpeg and many of its constituent components use the GPL license. With only these features enabled, ffmpeg can be distributed in binary form.
 The problem becomes that many of its most desired codecs do not use a license that is compatible with the GPL, which means a "fully featured" ffmpeg
 cannot be distributed in binary form. If you have googled around to try to find such a binary distribution, you've almost certainly stumbled across 
 *the* response: "build it yourself." 
 
-Docker Ffmpeg Compiler steps in to do this for you! Rather than distribute a compiled version of ffmpeg, Docker Ffmpeg Compiler contains instructions
+Docker ffmpeg Compiler steps in to do this for you! Rather than distribute a compiled version of ffmpeg, Docker Ffmpeg Compiler contains instructions
 to fetch and compile the source code for ffmpeg and the most popular codecs--no binaries distributed, all licenses respected.
 
 Main Benefits
